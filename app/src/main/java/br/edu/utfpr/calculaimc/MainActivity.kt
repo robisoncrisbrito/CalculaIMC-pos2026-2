@@ -1,8 +1,6 @@
 package br.edu.utfpr.calculaimc
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -48,12 +45,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         btCalcular.setOnLongClickListener {
-            Toast.makeText(this, "botão para calcular IMC", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_longclick_calcular), Toast.LENGTH_SHORT).show()
             true
         }
 
         btLimpar.setOnLongClickListener {
-            Toast.makeText(this, "botão para limpar a tela", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_longclick_limpar), Toast.LENGTH_SHORT).show()
             true
         }
 
@@ -61,16 +58,16 @@ class MainActivity : AppCompatActivity() {
 
      fun btCalcularOnClick() {
         //entrada
-        var resultado = 0.0
+        var resultado: Double
 
         val peso = etPeso.text.toString().toDoubleOrNull()?: run {
-            etPeso.error = "Campo peso deve ser informado"
+            etPeso.error = getString(R.string.erro_peso)
             etPeso.requestFocus()
             return
         }
 
         val altura = etAltura.text.toString().toDoubleOrNull()?: run {
-            etAltura.error = "Campo altura deve ser informado"
+            etAltura.error = getString(R.string.erro_altura)
             etAltura.requestFocus()
             return
         }
@@ -87,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     private fun btLimparOnClick() {
         etPeso.text.clear()
         etAltura.text.clear()
-        tvResultado.text = "0.0"
+        tvResultado.text = getString(R.string.zeros)
         etPeso.requestFocus()
     }
 
