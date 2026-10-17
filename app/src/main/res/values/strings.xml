@@ -5,7 +5,7 @@
     <string name="hint_peso">Peso em Kg</string>
     <string name="hint_altura">Altura em m</string>
     <string name="imc">IMC:</string>
-    <string name="zeros">0.0</string>
+    <string name="zeros">0,0</string>
     <string name="calcular">Calcular</string>
     <string name="limpar">Limpar</string>
     <string name="msg_longclick_calcular">Botão para calcular IMC</string>
