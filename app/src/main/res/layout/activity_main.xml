@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:text="@string/peso"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/peso" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -24,19 +24,18 @@
         android:hint="@string/hint_peso"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvPeso"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvAltura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/altura"
         android:padding="16dp"
+        android:text="@string/altura"
         app:layout_constraintStart_toStartOf="@id/tvPeso"
-        app:layout_constraintTop_toBottomOf="@id/tvPeso"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvPeso" />
 
     <EditText
         android:id="@+id/etAltura"
@@ -45,20 +44,19 @@
         android:hint="@string/hint_altura"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvAltura"
-        app:layout_constraintTop_toBottomOf="@id/etPeso"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/etPeso" />
 
 
     <TextView
         android:id="@+id/tvIMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/imc"
         android:padding="16dp"
+        android:text="@string/imc"
         app:layout_constraintStart_toStartOf="@id/tvAltura"
-        app:layout_constraintTop_toBottomOf="@id/tvAltura"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvAltura" />
 
     <TextView
         android:id="@+id/tvResultado"
@@ -68,8 +66,7 @@
         android:text="@string/zeros"
         android:textAppearance="@android:style/TextAppearance.Large"
         app:layout_constraintStart_toEndOf="@id/tvIMC"
-        app:layout_constraintTop_toTopOf="@id/tvIMC"
-        />
+        app:layout_constraintTop_toTopOf="@id/tvIMC" />
 
 
     <Button
@@ -87,8 +84,6 @@
         android:layout_height="wrap_content"
         android:text="@string/limpar"
         app:layout_constraintStart_toEndOf="@id/btCalcular"
-        app:layout_constraintTop_toTopOf="@id/btCalcular"
-
-        />
+        app:layout_constraintTop_toTopOf="@id/btCalcular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,28 +48,30 @@ class MainActivity : AppCompatActivity() {
         }
 
         btCalcular.setOnLongClickListener {
-            Toast.makeText(this, getString(R.string.msg_longclick_calcular), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_longclick_calcular), Toast.LENGTH_SHORT)
+                .show()
             true
         }
 
         btLimpar.setOnLongClickListener {
-            Toast.makeText(this, getString(R.string.msg_longclick_limpar), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_longclick_limpar), Toast.LENGTH_SHORT)
+                .show()
             true
         }
 
     } //fim do método onCreate()
 
-     fun btCalcularOnClick() {
+    fun btCalcularOnClick() {
         //entrada
         var resultado: Double
 
-        val peso = etPeso.text.toString().toDoubleOrNull()?: run {
+        val peso = etPeso.text.toString().toDoubleOrNull() ?: run {
             etPeso.error = getString(R.string.erro_peso)
             etPeso.requestFocus()
             return
         }
 
-        val altura = etAltura.text.toString().toDoubleOrNull()?: run {
+        val altura = etAltura.text.toString().toDoubleOrNull() ?: run {
             etAltura.error = getString(R.string.erro_altura)
             etAltura.requestFocus()
             return
@@ -78,17 +80,12 @@ class MainActivity : AppCompatActivity() {
         //processamento
 
         val language = Locale.getDefault().language
-
-        if ( language == "pt") {
-            resultado = peso / altura.pow(2)
-        } else {
-            resultado = 703 * ( peso / altura.pow(2) )
-        }
+        resultado = calcularIMC(peso, altura, language)
 
         //saída
-         val nf = NumberFormat.getNumberInstance(Locale.getDefault())
-         val df = nf as DecimalFormat
-         tvResultado.text = df.format(resultado)
+        val nf = NumberFormat.getNumberInstance(Locale.getDefault())
+        val df = nf as DecimalFormat
+        tvResultado.text = df.format(resultado)
 
     }
 
@@ -99,6 +96,19 @@ class MainActivity : AppCompatActivity() {
         val df = nf as DecimalFormat
         tvResultado.text = df.format(0)
         etPeso.requestFocus()
+    }
+
+    companion object {
+
+        fun calcularIMC(peso: Double, altura: Double, language: String): Double {
+
+            if (language == "pt") {
+                return peso / altura.pow(2)
+            } else {
+                return 703 * (peso / altura.pow(2))
+            }
+        }
+
     }
 
 } //fim da classe MainActivity
